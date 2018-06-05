@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var rocket: UIImageView!
     @IBOutlet weak var hustleLbl: UILabel!
     @IBOutlet weak var onLbl: UILabel!
+    @IBOutlet weak var resetBtn: UIButton!
     
     var player: AVAudioPlayer!
     
@@ -49,5 +50,18 @@ class ViewController: UIViewController {
         }
     }
 
+    @IBAction func resetBtnPressed(_ sender: Any) {
+        
+        self.hustleLbl.isHidden = true
+        self.onLbl.isHidden = true
+        
+        UIView.animate(withDuration: 2.3, animations: {
+            self.rocket.frame = CGRect(x: 0, y: 400, width: 375, height: 484)
+        }) { (finished) in
+            
+            self.darkBlueBG.isHidden = false
+            self.powerBtn.isHidden = false
+        }
+    }
 }
 
